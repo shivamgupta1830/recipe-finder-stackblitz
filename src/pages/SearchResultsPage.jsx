@@ -45,7 +45,7 @@ const SearchResultsPage = () => {
   // to handle show more button as only 9 cards are shown to reduce load on client
 
   const handleShowMore = () => {
-    setDisplayCount(displayCount + 3);
+    setDisplayCount(displayCount + 9);
   };
 
   if (loading) return <Loader />;
@@ -101,7 +101,7 @@ const SearchResultsPage = () => {
 
       {displayCount < recipes.length && (
         <button
-          className="text-purple-700 hover:underline hover:underline-offset-2 mt-6"
+          className="text-purple-700 hover:underline hover:underline-offset-2 mt-10"
           onClick={handleShowMore}
         >
           See more
