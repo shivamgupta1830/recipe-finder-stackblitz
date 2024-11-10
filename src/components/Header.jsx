@@ -26,7 +26,7 @@ const Header = () => {
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-2 text-sm sm:text-base items-center w-full sm:w-auto">
         {/* Select Menu for Search Type with fixed height */}
         <select
-          className="p-2 rounded outline-none text-purple-700 flex-1 sm:flex-none h-10"
+          className="p-2 rounded outline-none text-purple-700 bg-white flex-1 sm:flex-none h-10"
           value={searchType}
           onChange={(e) => setSearchType(e.target.value)}
         >
@@ -37,7 +37,7 @@ const Header = () => {
         {/* Search input with fixed height */}
         <input
           type="text"
-          className="p-2 rounded placeholder:text-purple-400 outline-none text-purple-700 flex-1 sm:flex-none h-10"
+          className="p-2 rounded placeholder:text-purple-400 outline-none bg-white text-purple-700 flex-1 sm:flex-none h-10"
           placeholder="Search for recipes..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
