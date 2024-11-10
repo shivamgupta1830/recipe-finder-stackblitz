@@ -49,7 +49,7 @@ Built with React and Vite for fast development and optimized performance, this p
 ## Technologies Used
 
 * **Frontend**: React, Vite
-* **Styling**: Tailwind CSS (optional)
+* **Styling**: Tailwind CSS
 * **API**: Themealdb
 * **Build Tool**: Vite for fast bundling and optimized builds
 
