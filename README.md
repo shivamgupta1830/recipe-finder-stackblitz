@@ -1,6 +1,7 @@
 # Recipe Finder
 
-Recipe Finder is a responsive web application that allows users to search for recipes based on ingredient names. Built with React and Vite for fast development and optimized performance, this project aims to simplify meal planning by helping users discover a wide variety of recipes with just a few clicks.
+Recipe Finder is a responsive web application that allows users to search for recipes based on ingredient or dish name. 
+Built with React and Vite for fast development and optimized performance, this project aims to simplify meal planning by helping users discover a wide variety of recipes with just a few clicks.
 
 # Table of Contents
 
@@ -12,8 +13,8 @@ Recipe Finder is a responsive web application that allows users to search for re
 * License
 
 # Features
-* **Search Recipes:** Search for recipes by ingredient, cuisine, or dish name.
-* **Recipe Details:** View detailed information on each recipe, including ingredients, cooking instructions, and nutritional info.
+* **Search Recipes:** Search for recipes by ingredient or dish name.
+* **Recipe Details:** View detailed information on each recipe, including ingredients, cooking instructions, cooking vinstuctions video & original link to recipe.
 * **Responsive Design:** Fully responsive UI for a seamless experience across desktop and mobile devices.
 * **Error Handling:** Graceful handling of API errors and invalid searches.
 
@@ -42,8 +43,8 @@ Recipe Finder is a responsive web application that allows users to search for re
 ## Usage
 
 * **Searching Recipes**: Use the search bar on the homepage to find recipes based on ingredient or dish name.
-* **Viewing Recipe Details**: Click on any recipe card to see details like ingredients, steps, and nutritional information.
-* **Favorites**: Mark recipes as favorites for quick access.
+* **Viewing Recipe Details**: Click on any recipe card to see details like ingredients, steps, video guide, original article link and nutritional information.
+
 
 ## Technologies Used
 

@@ -7,26 +7,30 @@ const LandingPage = () => {
     {
       id: 1,
       name: "Milk",
+      type: "ingredient",
       image:
         "https://res.cloudinary.com/dmrqwx9x5/image/upload/v1731150772/eiliv-aceron-_8bnn1GqX70-unsplash_azryxv.jpg",
     },
     {
       id: 2,
       name: "Chicken",
+      type: "ingredient",
       image:
         "https://res.cloudinary.com/dmrqwx9x5/image/upload/v1731150868/eiliv-aceron-DNQLBdGdld0-unsplash_xjvaha.jpg",
     },
     {
       id: 3,
       name: "Butter",
+      type: "ingredient",
       image:
         "https://res.cloudinary.com/dmrqwx9x5/image/upload/v1731150772/pexels-monserratsoldu-3821250_brd9ii.jpg",
     },
     {
       id: 4,
-      name: "Baking Powder",
+      name: "Cake",
+      type: "name",
       image:
-        "https://res.cloudinary.com/dmrqwx9x5/image/upload/v1731150772/istockphoto-589107442-1024x1024_fvkwdq.jpg",
+        "https://res.cloudinary.com/dmrqwx9x5/image/upload/v1731226884/will-echols-P_l1bJQpQF0-unsplash_nyzhcy.jpg",
     },
   ];
 
@@ -47,14 +51,15 @@ const LandingPage = () => {
       </div>
 
       <p className="font-normal text-lg sm:text-xl text-purple-700 drop-shadow-md">
-        Discover dishes that match your time, ingredients, and culinary mood.
+        Discover dishes that match your ingredients, culinary mood and time.
       </p>
 
       {/* Bottom landing page */}
 
       <div className="mt-16">
         <h4 className="text-xl sm:text-3xl font-bold drop-shadow-md">
-          Top <span className="text-purple-700">Ingredients</span>
+          Top <span className="text-purple-700">Ingredients </span> or{" "}
+          <span className="text-purple-700">Dishes</span>
         </h4>
 
         <div className="flex flex-col sm:flex-row w-full  justify-between items-center flex-wrap gap-8 sm:gap-4 md:gap-12  mt-12">
@@ -62,7 +67,7 @@ const LandingPage = () => {
             <div key={recipe.id} className="">
               <Link
                 className="cursor-pointer"
-                to={`/search?query=${recipe.name}`}
+                to={`/search?query=${recipe.name}&type=${recipe.type}`}
               >
                 <img
                   src={recipe.image}

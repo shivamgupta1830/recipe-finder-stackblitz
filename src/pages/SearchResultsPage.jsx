@@ -2,23 +2,27 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import RecipeCard from "../components/RecipeCard";
 import Loader from "../components/Loader";
-import { fetchRecipes } from "../api/fetchRecipes";
+import {
+  fetchRecipesByIngredient,
+  fetchRecipesByName,
+} from "../api/fetchRecipes";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 const SearchResultsPage = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [displayCount, setDisplayCount] = useState(9); // Number of recipes to display initially
+  const [displayCount, setDisplayCount] = useState(9);
   const [searchTerm, setSearchTerm] = useState("");
   const { search } = useLocation();
 
   useEffect(() => {
     const fetchRecipeData = async () => {
-      const query = new URLSearchParams(search).get("query");
-      setSearchTerm(query || "");
+      const queryParams = new URLSearchParams(search);
+      const query = queryParams.get("query");
+      const type = queryParams.get("type") || "ingredient"; // default to 'ingredient'
 
-      //Ensure search term is provided
+      setSearchTerm(query || "");
 
       if (!query) {
         setError("Please enter a search term to see results!");
@@ -27,22 +31,25 @@ const SearchResultsPage = () => {
       }
 
       setLoading(true);
-      setError(""); //to clear previous error
+      setError("");
 
       try {
-        const data = await fetchRecipes(query);
+        let data;
+        if (type === "name") {
+          data = await fetchRecipesByName(query);
+        } else {
+          data = await fetchRecipesByIngredient(query);
+        }
         setRecipes(data || []);
       } catch (error) {
         setError("Failed to fetch recipes. Please try again.");
       } finally {
-        setLoading(false); // Ensure loading is set to false after fetch, whether successful or failed
+        setLoading(false);
       }
     };
 
     fetchRecipeData();
   }, [search]);
-
-  // to handle show more button as only 9 cards are shown to reduce load on client
 
   const handleShowMore = () => {
     setDisplayCount(displayCount + 9);
@@ -64,9 +71,9 @@ const SearchResultsPage = () => {
   }
 
   return (
-    <div className=" px-8 py-8 md:py-16 text-center min-h-screen">
+    <div className="px-8 py-8 md:py-16 text-center min-h-screen">
       <div className="flex justify-between items-center pb-6 md:pb-12 text-sm sm:text-base md:text-lg font-normal">
-        <h3 className=" drop-shadow-md">
+        <h3 className="drop-shadow-md">
           {recipes.length > 0
             ? `${recipes.length} results found for `
             : `No results found for `}
@@ -80,6 +87,7 @@ const SearchResultsPage = () => {
           </div>
         </Link>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 px-8 justify-items-center">
         {recipes.length ? (
           recipes
@@ -95,9 +103,6 @@ const SearchResultsPage = () => {
           </div>
         )}
       </div>
-
-      {/* ensure button visible only when data length is more than 9 and hidden when
-      all results are displayed */}
 
       {displayCount < recipes.length && (
         <button
