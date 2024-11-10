@@ -8,6 +8,7 @@ const Header = () => {
 
   const handleSearch = () => {
     navigate(`/search?query=${search}`);
+    setSearch("")
   };
 
   return (
