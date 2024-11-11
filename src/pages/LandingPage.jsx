@@ -72,7 +72,7 @@ const LandingPage = () => {
                 <img
                   src={recipe.image}
                   alt={recipe.name}
-                  className="w-44 h-44 sm:w-28 sm:h-28 object-cover rounded-full mb-2 shadow-md hover:scale-[1.03] transition-all"
+                  className="w-20 h-20 sm:w-28 sm:h-28 object-cover rounded-full mb-2 shadow-md hover:scale-[1.03] transition-all"
                 />
                 <p className="  text-purple-700 drop-shadow-md mt-5">
                   {recipe.name}
